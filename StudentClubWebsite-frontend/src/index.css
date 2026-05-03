@@ -1,0 +1,55 @@
+/* Базовые настройки */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050505; /* Защита от белых полос */
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif; /* Подставь свой шрифт */
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Растягиваем приложение на весь экран */
+}
+
+/* Контейнер для основного контента между Navbar и Footer */
+.main-content {
+    flex: 1; /* Выталкивает футер вниз */
+    width: 100%;
+    padding: 0; /* УБРАЛИ ОТСТУПЫ, чтобы убить белые рамки */
+    background-color: #050505; /* Защита фона */
+}
+/* Красивый скроллбар */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: rgba(255,0,51,0.3); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,0,51,0.6); }
+
+/* Анимации */
+@keyframes floatBg {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes syncRedTextPulse {
+    0% { text-shadow: 0 0 4px rgba(255,0,51,0.3); opacity: 0.8; }
+    50% { text-shadow: 0 0 15px rgba(255,0,51,0.9); opacity: 1; }
+    100% { text-shadow: 0 0 4px rgba(255,0,51,0.3); opacity: 0.8; }
+}
+
+@keyframes syncRedBorderPulse {
+    0% { border-color: rgba(255,0,51,0.1); box-shadow: 0 0 10px rgba(255,0,51,0.05); }
+    50% { border-color: rgba(255,0,51,0.6); box-shadow: 0 0 20px rgba(255,0,51,0.25); }
+    100% { border-color: rgba(255,0,51,0.1); box-shadow: 0 0 10px rgba(255,0,51,0.05); }
+}
+
+/* Глобальные классы */
+.pulse-text { animation: syncRedTextPulse 2.5s infinite ease-in-out; }
+.pulse-box { animation: syncRedBorderPulse 2.5s infinite ease-in-out; }
